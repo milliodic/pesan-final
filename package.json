@@ -1,0 +1,27 @@
+{
+  "name": "whatsapp-api",
+  "version": "1.0.0",
+  "description": "WhatsApp API by Syaiful Alamsah",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "whatsapp-api",
+    "node.js"
+  ],
+  "author": "Syaiful Alamsah",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-validator": "^6.13.0",
+    "http": "^0.0.1-security",
+    "qrcode": "^1.3.3",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io": "^4.3.1",
+    "whatsapp-web.js": "^1.15.1"
+  }
+}
