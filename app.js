@@ -90,20 +90,20 @@ io.on('connection', function(socket){
         client.initialize();
     });
 
-    client.on('message', msg => {
-        if (msg.body == '!follow') {
-            msg.reply('Follow Akun Cakji di https://www.instagram.com/cakj1/');
-        } else if (msg.body == '!info') {
-            msg.reply('Informasi kegiatan @cakj1 silahkan kunjungi https://cakji.id/ ');
-        } else if (msg.body == '!lapor') {
-            msg.reply('Untuk memberikan laporan silahkan kunjungi https://cakji.id/lapor-cakji ');
-        } else {
-            msg.reply('Ini adalah Nomor WhatsApp Press Release @cakj1 (Wakil Walikota Surabaya)'+
-                '\n- Untuk Follow @cakj1 ketik !follow'+
-                '\n- Untuk Informasi ketik !info'+
-                '\n- untuk memberi Laporan ketik !lapor');    
-        }
-    });
+    // client.on('message', msg => {
+    //     if (msg.body == '!follow') {
+    //         msg.reply('Follow Akun Cakji di https://www.instagram.com/cakj1/');
+    //     } else if (msg.body == '!info') {
+    //         msg.reply('Informasi kegiatan @cakj1 silahkan kunjungi https://cakji.id/ ');
+    //     } else if (msg.body == '!lapor') {
+    //         msg.reply('Untuk memberikan laporan silahkan kunjungi https://cakji.id/lapor-cakji ');
+    //     } else {
+    //         msg.reply('Ini adalah Nomor WhatsApp Press Release @cakj1 (Wakil Walikota Surabaya)'+
+    //             '\n- Untuk Follow @cakj1 ketik !follow'+
+    //             '\n- Untuk Informasi ketik !info'+
+    //             '\n- untuk memberi Laporan ketik !lapor');    
+    //     }
+    // });
 
 });
 
@@ -148,7 +148,7 @@ app.post('/check-no-wa', [
 app.post('/send-message', [
     body('number').notEmpty(),
     body('message').notEmpty(),
-], async (req, res) => {
+], (req, res) => {
     const errors = validationResult(req).formatWith(({msg}) => {
         return msg;
     });
