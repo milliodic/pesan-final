@@ -13,6 +13,10 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+const browser = await puppeteer.launch({
+  executablePath: '/usr/bin/chromium-browser'
+})
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
