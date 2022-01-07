@@ -34,6 +34,7 @@
 
 			socket.on('qr', function(src){
 				$('#qrcode').attr('src', src);
+				$('#qrcode').show();
 			});
 
 			socket.on('ready', function(src){
@@ -42,10 +43,6 @@
 
 			socket.on('authenticated', function(src){
 				$('#qrcode').hide();
-			});
-
-			socket.on('disconnected', function(src){
-				$('#qrcode').show();
 			});
 
 		});
