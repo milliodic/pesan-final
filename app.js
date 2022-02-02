@@ -80,20 +80,20 @@ const createSession = function(id, description) {
 
   client.initialize();    
 
-    client.on('message', msg => {
-        if (msg.body == 'Follow') {
-            msg.reply('Follow Akun Cakji di https://www.instagram.com/cakj1/');
-        } else if (msg.body == 'Info') {
-            msg.reply('Informasi kegiatan @cakj1 silahkan kunjungi https://cakji.id/ ');
-        } else if (msg.body == 'Lapor') {
-            msg.reply('Untuk memberikan laporan silahkan kunjungi https://cakji.id/lapor-cakji ');
-        } else {
-            msg.reply('Ini adalah Nomor WhatsApp Press Release @cakj1 (Wakil Walikota Surabaya)'+
-                '\n- Untuk Follow @cakj1 ketik Follow'+
-                '\n- Untuk Informasi ketik Info'+
-                '\n- untuk memberi Laporan ketik Lapor');    
-        }
-    });
+    // client.on('message', msg => {
+    //    if (msg.body == 'Follow') {
+    //        msg.reply('Follow Akun Cakji di https://www.instagram.com/cakj1/');
+    //    } else if (msg.body == 'Info') {
+    //        msg.reply('Informasi kegiatan @cakj1 silahkan kunjungi https://cakji.id/ ');
+    //    } else if (msg.body == 'Lapor') {
+    //        msg.reply('Untuk memberikan laporan silahkan kunjungi https://cakji.id/lapor-cakji ');
+    //    } else {
+    //        msg.reply('Ini adalah Nomor WhatsApp Press Release @cakj1 (Wakil Walikota Surabaya)'+
+    //            '\n- Untuk Follow @cakj1 ketik Follow'+
+    //            '\n- Untuk Informasi ketik Info'+
+    //            '\n- untuk memberi Laporan ketik Lapor');    
+    //    }
+    // });
 
 
   client.on('qr', (qr) => {
