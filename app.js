@@ -1,4 +1,4 @@
-const { Client, MessageMedia } = require('whatsapp-web.js');
+const { Client, LegacySessionAuth } = require('whatsapp-web.js');
 const express = require('express');
 const {body, validationResult} = require('express-validator');
 const socketIO = require('socket.io');
@@ -61,21 +61,23 @@ const createSession = function(id, description) {
   }
 
   const client = new Client({
-    restartOnAuthFail: true,
-    puppeteer: {
-      headless: true,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
-        '--no-first-run',
-        '--no-zygote',
-        '--single-process', // <- this one doesn't works in Windows
-        '--disable-gpu'
-      ],
-    },
-    session: sessionCfg
+    authStrategy: new LegacySessionAuth({
+      restartOnAuthFail: true,
+      puppeteer: {
+        headless: true,
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-accelerated-2d-canvas',
+          '--no-first-run',
+          '--no-zygote',
+          '--single-process', // <- this one doesn't works in Windows
+          '--disable-gpu'
+        ],
+      },
+      session: sessionCfg
+    })
   });
 
   client.initialize();    
