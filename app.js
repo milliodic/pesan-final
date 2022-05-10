@@ -1,4 +1,4 @@
-const { Client, Location, List, Buttons, LocalAuth } = require('whatsapp-web.js/index');
+const { Client, LocalAuth } = require('whatsapp-web.js/index');
 const express = require('express');
 const {body, validationResult} = require('express-validator');
 const socketIO = require('socket.io');
@@ -70,12 +70,12 @@ io.on('connection', function(socket){
 
     client.on('ready', () => {
         console.log('READY');
-        socket.emit('ready', 'WhastApp is Ready!');
-        socket.emit('message', 'WhastApp is Ready!');
+        socket.emit('ready', 'Server OTP CONNECTED!');
+        socket.emit('message', 'Server OTP CONNECTED!');
     });
 
     client.on('disconnected', msg => {
-        socket.emit('message', 'Whatsapp is disconnected!');
+        socket.emit('message', 'Server OTP DISCONNECTED!');
         client.destroy();
         client.initialize();
     });    
