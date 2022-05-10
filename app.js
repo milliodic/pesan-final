@@ -45,7 +45,7 @@ client.initialize();
 
 // Socket IO
 io.on('connection', function(socket){
-    socket.emit('message', 'Connecting lah...');
+    socket.emit('message', 'Connecting...');
 
     client.on('qr', (qr) => {
     // NOTE: This event will not be fired if a session is specified.
