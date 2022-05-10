@@ -12,8 +12,8 @@
 </head>
 <body>
 
-	<div id="app">
-		<h1>WhatsApp API</h1>
+	<div id="app" style="text-align: center;">
+		<h1>Server OTP</h1>
 		<p>Powered By: Syaiful Alamsah</p>
 		<img src="" id="qrcode" alt="QR Code">
 		<h3>Logs:</h3>
@@ -29,7 +29,7 @@
 			var socket = io();
 
 			socket.on('message', function(msg){
-				$('.logs').append($('<li>').text(msg));
+				$('.logs').text(msg);
 			});
 
 			socket.on('qr', function(src){
