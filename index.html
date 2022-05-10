@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>WhatsApp API by Syaiful Alamsah</title>
+	<title>Server OTP by Syaiful Alamsah</title>
 	<style type="text/css">
 		.hide {
 			display: none;
@@ -12,12 +12,24 @@
 </head>
 <body>
 
-	<div id="app" style="text-align: center;">
-		<h1>Server OTP</h1>
-		<p>Powered By: Syaiful Alamsah</p>
-		<img src="" id="qrcode" alt="QR Code">
-		<h3>Logs:</h3>
-		<ul class="logs"></ul>
+	<div id="app" align="center">
+		<table width="300px" border="0">
+			<tr>
+				<td align="center">
+					<h1>Server OTP</h1>
+					<p>Powered By: Syaiful Alamsah</p>
+					<img src="" id="qrcode" alt="QR Code" class="hide" width="170" height="170">
+					<img src="https://klinikdak.com/images/connecting.gif" id="beforeqr" width="170" height="170">
+					<img src="https://klinikdak.com/images/connected.png" id="qrconnected" class="hide" width="170" height="170">										
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3 align="center">Logs:</h3>					
+					<ul class="logs"></ul>
+				</td>
+			</tr>
+		</table>					
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -29,20 +41,26 @@
 			var socket = io();
 
 			socket.on('message', function(msg){
-				$('.logs').text(msg);
+				$('.logs').append($('<li>').text(msg));
 			});
 
 			socket.on('qr', function(src){
 				$('#qrcode').attr('src', src);
 				$('#qrcode').show();
+				$('#beforeqr').hide();
+				$('#qrconnected').hide();
 			});
 
 			socket.on('ready', function(src){
 				$('#qrcode').hide();
+				$('#beforeqr').hide();
+				$('#qrconnected').show();
 			});
 
 			socket.on('authenticated', function(src){
 				$('#qrcode').hide();
+				$('#beforeqr').hide();
+				$('#qrconnected').show();
 			});
 
 		});
